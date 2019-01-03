@@ -1,0 +1,9 @@
+{
+  "Id": "Brings the team changing ability from R&D to the rest of the game.",
+  "DisplayName": "Change Team Anywhere",
+  "Author": "Mindlessmrawesome",
+  "Version": "1.0.2",
+  "Enable": true,
+  "AssemblyName": "ChangeTeamAnywhere.dll",
+  "EntryMethod": "ChangeTeamAnywhere.QPatch.Main"
+}
