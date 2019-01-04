@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Harmony;
 using Unity;
+using UnityEngine;
 using TerraTech;
 
 namespace ChangeTeamAnywhere
@@ -39,6 +40,22 @@ namespace ChangeTeamAnywhere
                             {
                                 targetTank2.SetTeam(1);
                                 targetTank2.AI.SetOldBehaviour();
+                            }
+                        }
+                    }
+                    if (Input.GetKey(KeyCode.Y))
+                    {
+                        Tank targetTank2 = Singleton.Manager<ManPointer>.inst.targetTank;
+                        if (targetTank2 != null && targetTank2 != Singleton.playerTank)
+                        {
+                            if (targetTank2.IsNeutral() == true)
+                            {
+                                targetTank2.SetTeam(0);
+                                targetTank2.AI.SetBehaviorType(AITreeType.AITypes.Idle);
+                            }
+                            else
+                            {
+                                targetTank2.SetTeam(-2);
                             }
                         }
                     }
