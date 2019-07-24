@@ -50,12 +50,17 @@ namespace ChangeTeamAnywhere
                         {
                             if (targetTank2.IsNeutral() == true)
                             {
-                                targetTank2.SetTeam(0);
-                                targetTank2.AI.SetBehaviorType(AITreeType.AITypes.Idle);
+                                if (targetTank2.name[0] == '\\' && targetTank2.name[targetTank2.name.Length - 1] == '\\')
+                                {
+                                    targetTank2.SetTeam(0);
+                                    targetTank2.AI.SetBehaviorType(AITreeType.AITypes.Idle);
+                                    targetTank2.name.Trim('\\');
+                                }
                             }
                             else
                             {
                                 targetTank2.SetTeam(-2);
+                                targetTank2.name = $"\\{targetTank2.name}\\";
                             }
                         }
                     }
